@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #c7c7c7;
+  color: #212121;
+  line-height: 1.5;
+  margin: 0;
+}
+p {
+  padding: 0;
+  margin: 0;
+}
+.hidden {
+  display: none;
+}
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 70px 10px 10px 10px;
+}
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 320px;
+  height: 390px;
+  background-color: #5c5c5c;
+  border-radius: 10px;
+  box-shadow: rgba(58, 56, 56, 0.35) 0px 5px 15px;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  height: 260px;
+}
+
+img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.info {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: #2121217a 4px solid;
+  border-radius: 10px;
+}
+
+.info-item {
+  font-size: small;
+  color: #fff;
+  padding: 2px;
+}
+.search-form {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgb(24, 24, 179);
+  padding: 10px;
+  box-shadow: rgba(58, 56, 56, 0.35) 0px 2px 10px;
+}
+input[name='searchQuery'] {
+  padding: 5px;
+  font-size: 20px;
+  border: rgb(245, 245, 106) 4px solid;
+  border-radius: 10px;
+  color: rgb(24, 24, 179);
+}
+button[type='submit'] {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: rgb(245, 245, 106) 4px solid;
+  color: rgb(24, 24, 179);
+  font-weight: 600;
+}
+.wrapper {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+.load-more {
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  border: rgb(245, 245, 106) 4px solid;
+  background-color: rgb(24, 24, 179);
+  font-weight: 600;
+  margin: auto;
+}
