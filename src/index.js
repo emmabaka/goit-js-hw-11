@@ -42,33 +42,31 @@ function onSearch(e) {
 async function fetchImages(url) {
   let data;
   try {
-    const response = await axios.get(url).then(response => {
-      data = response.data;
-      if (data.hits.length === 0) {
-        loadMoreBtn.classList.add('hidden');
-        return Notiflix.Notify.failure(
-          'Sorry, there are no images matching your search query. Please try again.'
-        );
-      } else if (createUrl.page * 40 >= data.totalHits) {
-        loadMoreBtn.classList.add('hidden');
-        return Notiflix.Notify.info(
-          "We're sorry, but you've reached the end of search results."
-        );
-      } else {
-        loadMoreBtn.classList.remove('hidden');
-      }
-    });
+    const response = await axios.get(url);
+    data = response.data;
+    if (data.hits.length === 0) {
+      loadMoreBtn.classList.add('hidden');
+      return Notiflix.Notify.failure(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
+    } else if (createUrl.page * 40 >= data.totalHits) {
+      loadMoreBtn.classList.add('hidden');
+      return Notiflix.Notify.info(
+        "We're sorry, but you've reached the end of search results."
+      );
+    } else {
+      loadMoreBtn.classList.remove('hidden');
+    }
     return data;
   } catch (e) {
     console.log(e);
   }
 }
 
-function onLoadMore() {
+async function onLoadMore() {
   createUrl.incrementPage();
-  fetchImages(createUrl.getUrl()).then(response => {
-    createMarkup(response.hits);
-  });
+  const response = await fetchImages(createUrl.getUrl());
+  createMarkup(response.hits);
 }
 
 function createMarkup(images) {
@@ -106,4 +104,3 @@ function createMarkup(images) {
   gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
-
